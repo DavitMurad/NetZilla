@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		273B46982E0C39B40026F4AF /* NetZilla */ = {
+		273B46BE2E0C3ADB0026F4AF /* NetZilla */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NetZilla;
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 		273B468D2E0C39B40026F4AF = {
 			isa = PBXGroup;
 			children = (
-				273B46982E0C39B40026F4AF /* NetZilla */,
+				273B46BE2E0C3ADB0026F4AF /* NetZilla */,
 				273B46972E0C39B40026F4AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				273B46982E0C39B40026F4AF /* NetZilla */,
+				273B46BE2E0C3ADB0026F4AF /* NetZilla */,
 			);
 			name = NetZilla;
 			packageProductDependencies = (
