@@ -1,0 +1,159 @@
+[
+  {
+    "id": 1,
+    "title": "Godzilla",
+    "description": "A new Godzilla film about a military family caught in the crossfire as humanity struggles to survive against a terrifying monster threat. When ancient creatures thought to be extinct rise from the depths, Godzilla is unleashed to restore balance to the world.",
+    "releaseDate": "2014-05-16",
+    "rating": 6.4,
+    "genre": [
+      "Action",
+      "Sci-Fi",
+      "Monster",
+    ],
+    "posterImageName": "Godzila1",
+    "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+2014+Backdrop",
+    "isFavorite": false,
+    "runtime": 123,
+    "director": "Gareth Edwards",
+    "cast": [
+      "Aaron Taylor-Johnson",
+      "Ken Watanabe",
+      "Elizabeth Olsen",
+      "Juliette Binoche",
+      "Sally Hawkins",
+      "Bryan Cranston"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Kong: Skull Island",
+    "description": "A diverse team of scientists, soldiers and adventurers unite to explore an uncharted island in the Pacific, as dangerous as it is beautiful. Cut off from everything they know, they venture into the domain of the mighty Kong, and must fight for survival in a primordial Eden.",
+    "releaseDate": "2017-03-10",
+    "rating": 6.7,
+    "genre": [
+      "Action",
+      "Adventure",
+      "Monster"
+    ],
+    "posterImageName": "Kong1",
+    "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Kong+Skull+Island+Backdrop",
+    "isFavorite": false,
+    "runtime": 118,
+    "director": "Jordan Vogt-Roberts",
+    "cast": [
+      "Tom Hiddleston",
+      "Samuel L. Jackson",
+      "Brie Larson",
+      "John C. Reilly",
+      "John Goodman",
+      "Jing Tian"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Godzilla: King of the Monsters",
+    "description": "The crypto-zoological agency Monarch faces off against a battery of god-sized monsters, including the mighty Godzilla, who collides with Mothra, Rodan, and his ultimate nemesis, the three-headed Ghidorah. When these ancient super-species—thought to be mere myths—rise again, they all vie for supremacy, leaving humanity's very existence hanging in the balance.",
+    "releaseDate": "2019-05-31",
+    "rating": 6.0,
+    "genre": [
+      "Action",
+      "Sci-Fi",
+      "Monster"
+    ],
+    "posterImageName": "GodzilaKofM",
+    "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+KOTM+Backdrop",
+    "isFavorite": false,
+    "runtime": 132,
+    "director": "Michael Dougherty",
+    "cast": [
+      "Kyle Chandler",
+      "Vera Farmiga",
+      "Millie Bobby Brown",
+      "Ken Watanabe",
+      "Zhang Ziyi"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Godzilla vs Kong",
+    "description": "The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against each other—the fearsome Godzilla and the mighty Kong—with humanity caught in the balance. When Kong embarks on a perilous journey to find his true home, he is met by an enraged Godzilla, who is cutting a swath of destruction across the globe.",
+    "releaseDate": "2021-03-31",
+    "rating": 6.3,
+    "genre": [
+      "Action",
+      "Sci-Fi",
+      "Monster"
+    ],
+    "posterImageName": "GodzilaVSKong",
+    "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+vs+Kong+Backdrop",
+    "isFavorite": false,
+    "runtime": 113,
+    "director": "Adam Wingard",
+    "cast": [
+      "Alexander Skarsgård",
+      "Millie Bobby Brown",
+      "Rebecca Hall",
+      "Brian Tyree Henry",
+      "Shun Oguri",
+      "Eiza González",
+      "Julian Dennison",
+      "Kyle Chandler",
+      "Demián Bichir"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Godzilla x Kong: The New Empire",
+    "description": "The epic battle continues! Legendary Pictures' cinematic Monsterverse follows up the explosive showdown of Godzilla vs. Kong with an all-new adventure that pits the almighty Kong and the fearsome Godzilla against a colossal undiscovered threat hidden within our world, forcing them to team up to protect their existence—and our own.",
+    "releaseDate": "2024-03-29",
+    "rating": 6.2,
+    "genre": [
+      "Action",
+      "Sci-Fi",
+      "Monster"
+    ],
+    "posterImageName": "GodzilaXKong",
+    "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+x+Kong+Backdrop",
+    "isFavorite": false,
+    "runtime": 115,
+    "director": "Adam Wingard",
+    "cast": [
+      "Rebecca Hall",
+      "Brian Tyree Henry",
+      "Dan Stevens",
+      "Kaylee Hottle",
+      "Alex Ferns",
+      "Fala Chen"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Monarch: Legacy of Monsters",
+    "description": "Following the thunderous battle between Godzilla and the Titans that leveled San Francisco, and the shocking revelation that monsters are real, 'Monarch: Legacy of Monsters' tracks two siblings unearthing their family's secrets and a link to the secret organization known as Monarch. Clues lead them into the world of monsters and ultimately down the rabbit hole to the 1950s and the origin of Monarch.",
+    "releaseDate": "2023-11-17",
+    "rating": 7.1,
+    "genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Drama",
+      "Monster"
+    ],
+    "posterImageName": "Monarch",
+    "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Monarch+Series+Backdrop",
+    "isFavorite": false,
+    "runtime": 60,
+    "director": "Matt Shakman (pilot), Anders Engstrom, Mairzee Almas, Julian Holmes",
+    "cast": [
+      "Kurt Russell",
+      "Wyatt Russell",
+      "Anna Sawai",
+      "Kiersey Clemons",
+      "Ren Watabe",
+      "Mari Yamamoto",
+      "Anders Holm",
+      "Joe Tippett",
+      "Elisa Lasowski"
+    ]
+  }
+]
