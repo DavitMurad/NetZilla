@@ -1,0 +1,40 @@
+[{
+    "id": 7,
+    "title": "Godzilla x Kong: Supernova",
+    "description": "An upcoming film set within the Monsterverse, rumored to explore new colossal threats and expand the lore of Titans. Details are scarce, but it is expected to deliver another epic monster clash.",
+    "releaseDate": "2027",
+    "genre": [
+        "Action",
+        "Sci-Fi",
+        "Monster",
+        "Adventure"
+    ],
+    "posterImageName": "Upcoming",
+    "logoImageName": "SuperNovaLogo",
+    "runtime": 0,
+    "director": "TBD",
+    "cast": [
+        "TBD"
+    ]
+},
+    {
+        "id": 8,
+        "title": "Godzilla x Kong: Titanfall",
+        "description": "In a world reeling from the emergence of Titans, a new threat arises from the deepest parts of the Hollow Earth, forcing humanity and the known Titans to face an unprecedented challenge. This film delves into uncharted territories of the Monsterverse, revealing ancient secrets and new monstrous species.",
+        "releaseDate": "TBD",
+        "genre": [
+            "Action",
+            "Sci-Fi",
+            "Monster",
+            "Thriller",
+            "Mystery"
+        ],
+        "posterImageName": "Upcoming2",
+        "logoImageName": "SuperNovaLogo",
+        "runtime": 0,
+        "director": "TBD",
+        "cast": [
+            "TBD"
+        ]
+    }
+]

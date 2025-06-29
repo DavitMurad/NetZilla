@@ -32,7 +32,7 @@ struct CarouselMovieView: View {
             isFullScreenPresented.toggle()
         }
         .fullScreenCover(isPresented: $isFullScreenPresented) {
-            Text(movie.title)
+            MovieDetailsView(movie: movie)
         }
     }
 }

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct FilterCell: View {
     var title: String
-    var isDropDpwn: Bool
     var isSelected: Bool
+    var isDropDown: Bool
     var body: some View {
         HStack(spacing: 4) {
             Text(title)
             
-            if isDropDpwn {
+            if isDropDown {
                 Image(systemName: "chevron.down")
             }
         }

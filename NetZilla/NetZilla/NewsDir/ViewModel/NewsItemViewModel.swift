@@ -9,6 +9,27 @@ import Foundation
 import SwiftUI
 
 class NewsItemViewModel: ObservableObject {
+    @Published var news = [NewsItemModel]()
+    @Published var isLoading = false
+    @Published var errorMessage: String?
     
-//    var newMovies = [NewsItemModel(logo: <#T##Image#>, relaseDate: <#T##String#>, description: <#T##String#>)]
+    let service = MovieService()
+    
+    func fetchNews() {
+        Task {
+            do {
+                isLoading = true
+                let fetched = try await service.loadUpcomingMovies()
+                self.news = fetched
+                print("Loaded movies: \(fetched.count)")
+                isLoading = false
+                
+            } catch {
+                errorMessage = error.localizedDescription
+                isLoading = false
+                print("Failed: \(errorMessage!)")
+            }
+        }
+    }
+    
 }

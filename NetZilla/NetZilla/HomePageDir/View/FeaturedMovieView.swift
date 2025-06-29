@@ -52,7 +52,10 @@ struct FeaturedMovieView: View {
             }
         }
         .fullScreenCover(isPresented: $isFullScreenPresented,  content: {
-            Text("Hello")
+            if let featuredMovie = featuredMovie {
+                MovieDetailsView(movie: featuredMovie)
+            }
+           
         })
         
         .onAppear {

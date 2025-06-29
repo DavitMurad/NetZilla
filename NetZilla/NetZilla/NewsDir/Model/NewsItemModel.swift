@@ -12,10 +12,15 @@ enum Category {
     case horror, action, drama
 }
 
-struct NewsItemModel {
-    let id = UUID().uuidString
-    let logo: Image
-    let relaseDate: String
+struct NewsItemModel: Identifiable, Equatable, Codable {
+    let id: Int
+    let title: String
     let description: String
-    let category: Category
+    let releaseDate: String
+    let genre: [String]
+    let posterImageName: String
+    let logoImageName: String
+    let runtime: Int
+    let director: String
+    let cast: [String]
 }

@@ -8,8 +8,73 @@
 import SwiftUI
 
 struct NewsView: View {
+    @ObservedObject var newsViewModel = NewsItemViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.black.ignoresSafeArea()
+
+            ScrollView {
+                LazyVStack(spacing: 30) {
+                    ForEach(newsViewModel.news) { newMovie in
+                        NewsItemView(newModel: newMovie)
+                    }
+                }
+                .padding(.top, 20)
+            }
+        }
+        .onAppear {
+            newsViewModel.fetchNews()
+        }
+    }
+}
+
+struct NewsItemView: View {
+    let newModel: NewsItemModel
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Image(newModel.posterImageName)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 180)
+                .clipped()
+                .cornerRadius(10)
+
+            Text(newModel.title)
+                .font(.title3)
+                .bold()
+                .foregroundStyle(.white)
+
+            Text("Coming in \(newModel.releaseDate)")
+                .font(.caption)
+                .foregroundStyle(.gray)
+
+            Text(newModel.description)
+                .font(.caption)
+                .foregroundStyle(.gray)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Button(action: {
+                
+            }) {
+                HStack {
+                    Image(systemName: "bell")
+                    Text("Remind Me")
+                        .fontWeight(.semibold)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(10)
+            }
+        }
+        .padding()
+        .background(Color(.secondarySystemBackground).opacity(0.2))
+        .cornerRadius(15)
+        .foregroundColor(.white)
+        .padding(.horizontal)
     }
 }
 

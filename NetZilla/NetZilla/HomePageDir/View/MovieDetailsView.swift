@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
+    @EnvironmentObject var movieViewModel: MovieViewModel
+    @Environment(\.dismiss) private var dismiss
+    
+    let movie: MovieModel
+    var castMembers = ""
     var body: some View {
         ZStack {
-            Color.gray.ignoresSafeArea()
-            VStack {
-                Image("Godzila1")
-                    .resizable()
+            Color.black.ignoresSafeArea()
+            ScrollView {
                 
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 200)
+        
+            VStack(spacing: 15) {
+                Image(movie.posterImageName)
+                    .resizable()
+                           .scaledToFill()
+                           .frame(height: 250)
+                           .clipped()
                     .overlay(alignment: .topTrailing) {
                         Button {
-                            
+                            dismiss()
                         } label: {
                             Image(systemName: "xmark")
                                 .font(.title3)
                         }
-                        .foregroundStyle(.white)
+                        
                         .padding()
                         .frame(alignment: .topTrailing)
                         .background(
@@ -32,26 +40,136 @@ struct MovieDetailsView: View {
                                 .fill(.black.opacity(0.5))
                                 .frame(width: 35, height: 35)
                         )
-
+                        
                     }
                     .overlay {
                         Button {
                             
                         } label: {
                             Image(systemName: "play.circle")
-//                                .font(.title)
-                                .frame(width: 200, height: 200)
+                                .font(.system(size: 50))
+                                .frame(width: 300, height: 300)
+                                .foregroundStyle(.lightGray)
                         }
                     }
+                
+                HStack() {
+                    Text(movie.title)
+                        .font(.headline)
+                    
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                
+                HStack(spacing: 0) {
+                    Group {
+                        Text(movie.releaseDate.prefix(4))
+                        Text("15")
+                            .background(
+                                Circle()
+                                    .stroke(.white, lineWidth: 5)
+                                    .fill(.pink)
+                                    .frame(width: 30, height: 30)
+                            )
+                        Text(movie.runtime)
+                    }
+                    .font(.callout)
+                    
+                    .padding(.horizontal)
+                    Spacer()
+                    
+                    
+                }
+                
+                HStack {
+                    Rectangle()
+                        .fill(.red)
+                        .frame(width: 30, height: 30)
+                        .overlay() {
+                            Text("Top 10")
+                                .font(.system(size: 17))
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.5)
+                        }
+                    Text("In MonsterVerse Universe.")
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                setUpInteractionImages(imageName: "play.fill", title: "Play", backColor: .white, fontColor: .black) {
+                    print("asd")
+                }
+                setUpInteractionImages(imageName: "arrow.down.to.line", title: "Download", backColor: .secondary, fontColor: .white) {
+                    print("asd")
+                }
+                
+                HStack {
+                    Text(movie.description)
+                        .font(.subheadline)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("Director: \(movie.director)")
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
                    
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                HStack {
+                    Text("Cast: \(movieViewModel.getCastMembers(movie))")
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
+                   
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                HStack {
+                    Button("more...") {
+                        
+                    }
+                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                    Spacer()
+                }
+                .offset(x: 0, y: -15)
+                .padding(.horizontal)
                 
                 Spacer()
             }
+            .foregroundStyle(.white)
         }
-       
+        }
+        
+    }
+    
+    func setUpInteractionImages(imageName: String, title: String, backColor: Color, fontColor: Color, action: @escaping () -> Void) -> some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(backColor)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
+            .overlay {
+                HStack {
+                    Group {
+                        Image(systemName: imageName)
+                        
+                        Text(title)
+                    }
+                    .foregroundStyle(fontColor)
+                    .font(.headline)
+                }
+            }
+            .padding(.horizontal)
     }
 }
 
-#Preview {
-    MovieDetailsView()
-}
+//#Preview {
+//    MovieDetailsView(movie: )
+//}

@@ -16,6 +16,10 @@ enum GenreTypes: String, CaseIterable, Identifiable {
     case advendutre = "Adventure"
     case drama = "Drama"
 }
+enum MediaType: String, CaseIterable, Codable, Hashable {
+    case movie = "Movie"
+    case tvShow = "TV Show"
+}
 
 struct MovieModel: Identifiable, Equatable, Codable {
     let id: Int
@@ -26,8 +30,9 @@ struct MovieModel: Identifiable, Equatable, Codable {
     let genre: [String]
     let posterImageName: String
     let backdropURL: String
+    let mediaType: MediaType
     var isFavorite: Bool
-    let runtime: Int
+    let runtime: String
     let director: String
     let cast: [String]
 }

@@ -8,12 +8,12 @@
     "genre": [
       "Action",
       "Sci-Fi",
-      "Monster",
+      "Monster"
     ],
     "posterImageName": "Godzila1",
     "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+2014+Backdrop",
     "isFavorite": false,
-    "runtime": 123,
+    "runtime": "1h 23 m",
     "director": "Gareth Edwards",
     "cast": [
       "Aaron Taylor-Johnson",
@@ -22,7 +22,8 @@
       "Juliette Binoche",
       "Sally Hawkins",
       "Bryan Cranston"
-    ]
+    ],
+    "mediaType": "Movie"
   },
   {
     "id": 2,
@@ -38,7 +39,7 @@
     "posterImageName": "Kong1",
     "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Kong+Skull+Island+Backdrop",
     "isFavorite": false,
-    "runtime": 118,
+    "runtime": "1h 18m",
     "director": "Jordan Vogt-Roberts",
     "cast": [
       "Tom Hiddleston",
@@ -47,7 +48,8 @@
       "John C. Reilly",
       "John Goodman",
       "Jing Tian"
-    ]
+    ],
+    "mediaType": "Movie"
   },
   {
     "id": 3,
@@ -63,7 +65,7 @@
     "posterImageName": "GodzilaKofM",
     "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+KOTM+Backdrop",
     "isFavorite": false,
-    "runtime": 132,
+    "runtime": "1h 32m",
     "director": "Michael Dougherty",
     "cast": [
       "Kyle Chandler",
@@ -71,7 +73,8 @@
       "Millie Bobby Brown",
       "Ken Watanabe",
       "Zhang Ziyi"
-    ]
+    ],
+    "mediaType": "Movie"
   },
   {
     "id": 4,
@@ -87,7 +90,7 @@
     "posterImageName": "GodzilaVSKong",
     "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+vs+Kong+Backdrop",
     "isFavorite": false,
-    "runtime": 113,
+    "runtime": "1h 13m",
     "director": "Adam Wingard",
     "cast": [
       "Alexander Skarsgård",
@@ -99,7 +102,8 @@
       "Julian Dennison",
       "Kyle Chandler",
       "Demián Bichir"
-    ]
+    ],
+    "mediaType": "Movie"
   },
   {
     "id": 5,
@@ -115,7 +119,7 @@
     "posterImageName": "GodzilaXKong",
     "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Godzilla+x+Kong+Backdrop",
     "isFavorite": false,
-    "runtime": 115,
+    "runtime": "1h 15m",
     "director": "Adam Wingard",
     "cast": [
       "Rebecca Hall",
@@ -124,7 +128,8 @@
       "Kaylee Hottle",
       "Alex Ferns",
       "Fala Chen"
-    ]
+    ],
+    "mediaType": "Movie"
   },
   {
     "id": 6,
@@ -142,7 +147,7 @@
     "posterImageName": "Monarch",
     "backdropURL": "https://placehold.co/1280x720/000000/FFFFFF?text=Monarch+Series+Backdrop",
     "isFavorite": false,
-    "runtime": 60,
+    "runtime": "59 m",
     "director": "Matt Shakman (pilot), Anders Engstrom, Mairzee Almas, Julian Holmes",
     "cast": [
       "Kurt Russell",
@@ -154,6 +159,7 @@
       "Anders Holm",
       "Joe Tippett",
       "Elisa Lasowski"
-    ]
+    ],
+    "mediaType": "TV Show"
   }
 ]

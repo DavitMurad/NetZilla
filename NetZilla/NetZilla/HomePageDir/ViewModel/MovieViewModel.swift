@@ -7,11 +7,22 @@
 
 import Foundation
 
+
+
 @MainActor
 class MovieViewModel: ObservableObject {
     @Published var movies = [MovieModel]()
     @Published var isLoading = false
     @Published var errorMessage: String?
+    
+    @Published var selectedMediaType: MediaType? = nil
+    
+    var filteredMovies: [MovieModel] {
+        guard let selectedType = selectedMediaType else {
+            return movies
+        }
+        return movies.filter { $0.mediaType == selectedType }
+    }
     
     let genres: GenreTypes = .action
     
@@ -36,5 +47,13 @@ class MovieViewModel: ObservableObject {
     }
     func checkIfContainsGenre(genre: GenreTypes, movie: MovieModel) -> Bool {
         return movie.genre.contains(where: { $0 == genre.rawValue })
+    }
+    
+    func getCastMembers(_ movieModel: MovieModel) -> String {
+        var resStr = ""
+        for member in movieModel.cast {
+            resStr += "\(member), "
+        }
+        return resStr
     }
 }
