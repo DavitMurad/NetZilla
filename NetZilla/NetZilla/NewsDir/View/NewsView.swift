@@ -71,7 +71,7 @@ struct NewsItemView: View {
             }
         }
         .padding()
-        .background(Color(.secondarySystemBackground).opacity(0.2))
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(15)
         .foregroundColor(.white)
         .padding(.horizontal)

@@ -17,6 +17,8 @@ class MovieViewModel: ObservableObject {
     
     @Published var selectedMediaType: MediaType? = nil
     
+    private let likedManager = LikedMoviesManager()
+    
     var filteredMovies: [MovieModel] {
         guard let selectedType = selectedMediaType else {
             return movies
@@ -56,4 +58,17 @@ class MovieViewModel: ObservableObject {
         }
         return resStr
     }
+    
+    func toggleLike(for movie: MovieModel) {
+            likedManager.toggleLike(id: movie.id)
+            objectWillChange.send()
+        }
+
+        func isLiked(_ movie: MovieModel) -> Bool {
+            likedManager.isLiked(movie.id)
+        }
+
+        func getLikedMovies() -> [MovieModel] {
+            movies.filter { likedManager.isLiked($0.id) }
+        }
 }

@@ -10,7 +10,10 @@ import SwiftUI
 struct MovieDetailsView: View {
     @EnvironmentObject var movieViewModel: MovieViewModel
     @Environment(\.dismiss) private var dismiss
-    
+    @State var isSoundPlaying = false
+    @State var isPlayingRoar = false
+
+
     let movie: MovieModel
     var castMembers = ""
     var body: some View {
@@ -44,12 +47,22 @@ struct MovieDetailsView: View {
                     }
                     .overlay {
                         Button {
-                            
+                            let impact = UIImpactFeedbackGenerator(style: .heavy)
+                            impact.impactOccurred()
+
+                            isPlayingRoar = true
+
+                            AudioManager.shared.playSound(named: "godzilla_roar") {
+                                isPlayingRoar = false
+                            }
+
                         } label: {
                             Image(systemName: "play.circle")
                                 .font(.system(size: 50))
                                 .frame(width: 300, height: 300)
                                 .foregroundStyle(.lightGray)
+                                .scaleEffect(isPlayingRoar ? 1.1 : 1.0)
+                                .animation(.easeInOut(duration: 0.2), value: isPlayingRoar)
                         }
                     }
                 
@@ -98,7 +111,9 @@ struct MovieDetailsView: View {
                 .padding(.horizontal)
                 
                 setUpInteractionImages(imageName: "play.fill", title: "Play", backColor: .white, fontColor: .black) {
-                    print("asd")
+                    AudioManager.shared.playSound(named: "godzilla_roar") {
+                        isPlayingRoar = false
+                    }
                 }
                 setUpInteractionImages(imageName: "arrow.down.to.line", title: "Download", backColor: .secondary, fontColor: .white) {
                     print("asd")
@@ -142,10 +157,41 @@ struct MovieDetailsView: View {
                 .offset(x: 0, y: -15)
                 .padding(.horizontal)
                 
+                HStack(spacing: 30) {
+                    Button {
+                        movieViewModel.toggleLike(for: movie)
+                    } label: {
+                        VStack {
+                            Image(systemName: movieViewModel.isLiked(movie) ? "hand.thumbsup.fill" :  "hand.thumbsup")
+                                .font(.title2)
+                               Text("Like")
+                                .font(.caption)
+                        }
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        VStack {
+                            Image(systemName: "paperplane")
+                                .font(.title2)
+                               Text("Share")
+                                .font(.caption)
+                        }
+                       
+                      
+                    }
+                   
+                }
+                .padding(.horizontal)
+              
+
+                
                 Spacer()
             }
             .foregroundStyle(.white)
         }
+            
         }
         
     }

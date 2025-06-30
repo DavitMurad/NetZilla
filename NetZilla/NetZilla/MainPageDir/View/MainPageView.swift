@@ -22,6 +22,7 @@ struct MainPageView: View {
             }
             Tab("Favourites", systemImage: "hand.thumbsup.fill") {
                 FavouritesView()
+                    .environmentObject(movieViewModel)
             }
         }
         

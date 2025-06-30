@@ -36,9 +36,10 @@ struct FeaturedMovieView: View {
                                         isFullScreenPresented.toggle()
                                     }
                                     
-                                    movieInteractionButton(imageName: featuredMovie!.isFavorite ? "hand.thumbsup.fill" : "hand.thumbsup", title: "Like") {
+                                    movieInteractionButton(imageName: movieViewModel.isLiked(featuredMovie!) ? "hand.thumbsup.fill" : "hand.thumbsup", title: "Like") {
                                         withAnimation {
-                                            featuredMovie?.isFavorite.toggle()
+                                            movieViewModel.toggleLike(for: featuredMovie!)
+
 
                                         }
                                     }

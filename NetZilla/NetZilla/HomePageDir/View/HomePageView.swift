@@ -16,20 +16,27 @@ struct HomePageView: View {
         
         ZStack {
             LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(.black),
-                    Color.black
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+                   gradient: Gradient(colors: [
+                       Color(red: 0.059, green: 0.047, blue: 0.161),
+                       Color(red: 0.188, green: 0.169, blue: 0.388),
+                       Color(red: 0.141, green: 0.141, blue: 0.243)
+                   ]),
+                   startPoint: .topLeading,
+                   endPoint: .bottomTrailing
+               )
+
             .ignoresSafeArea(.container, edges: [.top]).ignoresSafeArea(.container, edges: [.top])
             ScrollView {
                 VStack(spacing: 8) {
                     HStack(spacing: 16) {
                         Text("For You")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.title)
+                            .font(.largeTitle.bold())
+                              .foregroundStyle(LinearGradient(
+                                  colors: [.purple, .blue],
+                                  startPoint: .leading,
+                                  endPoint: .trailing
+                              ))
                         
                         Spacer()
                         Image(systemName: "tv.badge.wifi")
@@ -131,7 +138,15 @@ struct SearchView: View {
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            LinearGradient(
+                   gradient: Gradient(colors: [
+                       Color(red: 0.059, green: 0.047, blue: 0.161),
+                       Color(red: 0.188, green: 0.169, blue: 0.388),
+                       Color(red: 0.141, green: 0.141, blue: 0.243)
+                   ]),
+                   startPoint: .topLeading,
+                   endPoint: .bottomTrailing
+               ).ignoresSafeArea()
             VStack(alignment: .center) {
                 TextField("Search movies or shows", text: $textFieldtxt)
                     .padding(.horizontal)
@@ -182,3 +197,5 @@ struct SearchView: View {
 
 
 
+// Next up like page, category filter
+// Finishing touches - "the additional func", playing music?, theme
