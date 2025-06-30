@@ -17,13 +17,22 @@ class MovieViewModel: ObservableObject {
     
     @Published var selectedMediaType: MediaType? = nil
     
+    @Published var selectedGenre: GenreTypes? = nil
+    
     private let likedManager = LikedMoviesManager()
     
     var filteredMovies: [MovieModel] {
-        guard let selectedType = selectedMediaType else {
-            return movies
+        var result = movies
+        
+        if let type = selectedMediaType {
+            result = result.filter { $0.mediaType == type }
         }
-        return movies.filter { $0.mediaType == selectedType }
+
+        if let genre = selectedGenre {
+            result = result.filter { $0.genre.contains(genre.rawValue) }
+        }
+        
+        return result
     }
     
     let genres: GenreTypes = .action
@@ -71,4 +80,15 @@ class MovieViewModel: ObservableObject {
         func getLikedMovies() -> [MovieModel] {
             movies.filter { likedManager.isLiked($0.id) }
         }
+    
+    
+    func filterByGenre(_ genre: GenreTypes) -> [MovieModel] {
+        var filteredMovies: [MovieModel] = []
+        for movie in movies {
+            if movie.genre.contains(genre.rawValue) {
+                filteredMovies.append(movie)
+            }
+        }
+        return filteredMovies
+    }
 }

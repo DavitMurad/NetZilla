@@ -8,6 +8,6 @@
 import Foundation
 
 struct FilterModel: Hashable, Equatable {
-    let title: String
+    var title: String
     let isDropDown: Bool
 }

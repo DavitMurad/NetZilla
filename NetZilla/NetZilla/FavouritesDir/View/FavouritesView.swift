@@ -21,7 +21,7 @@ struct FavouritesView: View {
 
             VStack(spacing: 16) {
                 HStack {
-                    Text("★ Your Favourites")
+                    Text("Your Favourites")
                         .font(.largeTitle.bold())
                         .foregroundStyle(LinearGradient(
                             colors: [.purple, .pink],

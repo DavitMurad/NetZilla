@@ -14,13 +14,25 @@ struct NewsView: View {
         ZStack {
             Color.black.ignoresSafeArea()
 
-            ScrollView {
-                LazyVStack(spacing: 30) {
-                    ForEach(newsViewModel.news) { newMovie in
-                        NewsItemView(newModel: newMovie)
+            VStack {
+                Text("News")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.largeTitle.bold())
+                      .foregroundStyle(LinearGradient(
+                          colors: [.purple, .blue],
+                          startPoint: .leading,
+                          endPoint: .trailing
+                      ))
+                
+                      .padding()
+                ScrollView {
+                    LazyVStack(spacing: 30) {
+                        ForEach(newsViewModel.news) { newMovie in
+                            NewsItemView(newModel: newMovie)
+                        }
                     }
+                    .padding(.top, 20)
                 }
-                .padding(.top, 20)
             }
         }
         .onAppear {
@@ -71,7 +83,11 @@ struct NewsItemView: View {
             }
         }
         .padding()
-        .background(Color(.secondarySystemBackground))
+        .background( LinearGradient(
+            gradient: Gradient(colors: [Color.secondary, Color.purple.opacity(0.4)]),
+            startPoint: .top,
+            endPoint: .bottom
+        ))
         .cornerRadius(15)
         .foregroundColor(.white)
         .padding(.horizontal)

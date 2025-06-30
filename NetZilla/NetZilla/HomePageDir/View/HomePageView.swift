@@ -62,34 +62,81 @@ struct HomePageView: View {
                     
                     FeaturedMovieView()
                     
-                    ForEach(GenreTypes.allCases, id: \.self) { genre in
-                        Section() {
-                            HStack {
-                                Text(genre.rawValue)
-                                    .font(.title2.bold())
-                                    .padding(.horizontal)
-                                    .foregroundColor(.white)
-                                    .overlay(
-                                        Rectangle()
-                                            .frame(height: 2)
-                                            .foregroundColor(.purple)
-                                            .offset(y: 12),
-                                        alignment: .bottomLeading
-                                    )
-                                Spacer()
+                    if movieViewModel.selectedGenre == nil {
+                        ForEach(GenreTypes.allCases, id: \.self) { genre in
+                            let genreMovies = movieViewModel.filteredMovies.filter { movie in
+                                movieViewModel.checkIfContainsGenre(genre: genre, movie: movie)
                             }
-                            .padding()
-                                
-                        }
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 16) {
-                                ForEach(movieViewModel.filteredMovies) { movie in
-                                    if movieViewModel.checkIfContainsGenre(genre: genre, movie: movie) {
-                                        CarouselMovieView(movie: movie)
+                            
+                            if !genreMovies.isEmpty {
+                                Section() {
+                                    HStack {
+                                        Text(genre.rawValue)
+                                            .font(.title2.bold())
+                                            .padding(.horizontal)
+                                            .foregroundColor(.white)
+                                            .overlay(
+                                                Rectangle()
+                                                    .frame(height: 2)
+                                                    .foregroundColor(.purple)
+                                                    .offset(y: 12),
+                                                alignment: .bottomLeading
+                                            )
+                                        Spacer()
                                     }
+                                    .padding()
+                                }
+                                
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack(spacing: 16) {
+                                        ForEach(genreMovies) { movie in
+                                            CarouselMovieView(movie: movie)
+                                        }
+                                    }
+                                    .padding(.horizontal)
                                 }
                             }
-                            .padding(.horizontal)
+                        }
+                    } else {
+                        
+                        if let selectedGenre = movieViewModel.selectedGenre {
+                            let genreMovies = movieViewModel.filteredMovies.filter { movie in
+                                movieViewModel.checkIfContainsGenre(genre: selectedGenre, movie: movie)
+                            }
+                            
+                            if !genreMovies.isEmpty {
+                                Section() {
+                                    HStack {
+                                        Text(selectedGenre.rawValue)
+                                            .font(.title2.bold())
+                                            .padding(.horizontal)
+                                            .foregroundColor(.white)
+                                            .overlay(
+                                                Rectangle()
+                                                    .frame(height: 2)
+                                                    .foregroundColor(.purple)
+                                                    .offset(y: 12),
+                                                alignment: .bottomLeading
+                                            )
+                                        Spacer()
+                                    }
+                                    .padding()
+                                }
+                                
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack(spacing: 16) {
+                                        ForEach(genreMovies) { movie in
+                                            CarouselMovieView(movie: movie)
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
+                            } else {
+                                // Show message when no movies found for selected genre
+                                Text("No movies found for \(selectedGenre.rawValue)")
+                                    .foregroundColor(.gray)
+                                    .padding()
+                            }
                         }
                     }
                  
@@ -109,84 +156,8 @@ struct HomePageView: View {
                 movieViewModel.fetchMovies()
             }
         }
-//        .onChange(of: movieViewModel.movies) { newMovies in
-//            print("Updated: \(newMovies.count) items")
-//        }
     }
 }
-
-
-
-
-struct SearchView: View {
-    @EnvironmentObject var movieViewModel: MovieViewModel
-    @State private var textFieldtxt = ""
-
-    let columns = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16)
-    ]
-
-    var filteredMovies: [MovieModel] {
-        if textFieldtxt.isEmpty {
-            return []
-        }
-        return movieViewModel.movies.filter {
-            $0.title.localizedCaseInsensitiveContains(textFieldtxt)
-        }
-    }
-
-    var body: some View {
-        ZStack {
-            LinearGradient(
-                   gradient: Gradient(colors: [
-                       Color(red: 0.059, green: 0.047, blue: 0.161),
-                       Color(red: 0.188, green: 0.169, blue: 0.388),
-                       Color(red: 0.141, green: 0.141, blue: 0.243)
-                   ]),
-                   startPoint: .topLeading,
-                   endPoint: .bottomTrailing
-               ).ignoresSafeArea()
-            VStack(alignment: .center) {
-                TextField("Search movies or shows", text: $textFieldtxt)
-                    .padding(.horizontal)
-                    .frame(height: 55)
-                    .background(.secondary)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .foregroundStyle(.white)
-
-                if textFieldtxt.isEmpty {
-                    Text("“Let them fight.” – Dr. Serizawa")
-                        .font(.callout.italic())
-                        .foregroundColor(.gray)
-                        .padding(.top, 100)
-                }
-                else if filteredMovies.isEmpty {
-                    Text("No results found")
-                        .foregroundColor(.gray)
-                        .padding(.top, 50)
-                }
-                else {
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 24) {
-                            ForEach(filteredMovies) { movie in
-                                CarouselMovieView(movie: movie)
-                            }
-                        }
-                        .padding(.horizontal)
-                        .padding(.top)
-                    }
-                }
-
-                Spacer()
-            }
-            .padding()
-            .foregroundStyle(.white)
-        }
-    }
-}
-
-
 
 #Preview {
     HomePageView()

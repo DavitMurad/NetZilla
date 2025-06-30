@@ -18,7 +18,12 @@ struct MovieDetailsView: View {
     var castMembers = ""
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [Color.black, Color.purple.opacity(0.8)]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
             ScrollView {
                 
         
