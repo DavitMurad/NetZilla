@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class NewsItemViewModel: ObservableObject {
     @Published var news = [NewsItemModel]()
     @Published var isLoading = false

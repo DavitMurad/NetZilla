@@ -16,27 +16,23 @@ struct HomePageView: View {
         
         ZStack {
             LinearGradient(
-                   gradient: Gradient(colors: [
-                       Color(red: 0.059, green: 0.047, blue: 0.161),
-                       Color(red: 0.188, green: 0.169, blue: 0.388),
-                       Color(red: 0.141, green: 0.141, blue: 0.243)
-                   ]),
-                   startPoint: .topLeading,
-                   endPoint: .bottomTrailing
-               )
+                gradient: Gradient(colors: [Color.black, Color.purple.opacity(0.4)]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
 
             .ignoresSafeArea(.container, edges: [.top]).ignoresSafeArea(.container, edges: [.top])
-            ScrollView {
+            VStack(spacing: 8) {
                 VStack(spacing: 8) {
                     HStack(spacing: 16) {
                         Text("For You")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.largeTitle.bold())
-                              .foregroundStyle(LinearGradient(
-                                  colors: [.purple, .blue],
-                                  startPoint: .leading,
-                                  endPoint: .trailing
-                              ))
+                            .foregroundStyle(LinearGradient(
+                                colors: [.purple, .blue],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            ))
                         
                         Spacer()
                         Image(systemName: "tv.badge.wifi")
@@ -59,91 +55,94 @@ struct HomePageView: View {
                     
                     
                     FilterBarView()
-                    
-                    FeaturedMovieView()
-                    
-                    if movieViewModel.selectedGenre == nil {
-                        ForEach(GenreTypes.allCases, id: \.self) { genre in
-                            let genreMovies = movieViewModel.filteredMovies.filter { movie in
-                                movieViewModel.checkIfContainsGenre(genre: genre, movie: movie)
-                            }
-                            
-                            if !genreMovies.isEmpty {
-                                Section() {
-                                    HStack {
-                                        Text(genre.rawValue)
-                                            .font(.title2.bold())
-                                            .padding(.horizontal)
-                                            .foregroundColor(.white)
-                                            .overlay(
-                                                Rectangle()
-                                                    .frame(height: 2)
-                                                    .foregroundColor(.purple)
-                                                    .offset(y: 12),
-                                                alignment: .bottomLeading
-                                            )
-                                        Spacer()
-                                    }
-                                    .padding()
-                                }
-                                
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing: 16) {
-                                        ForEach(genreMovies) { movie in
-                                            CarouselMovieView(movie: movie)
-                                        }
-                                    }
-                                    .padding(.horizontal)
-                                }
-                            }
-                        }
-                    } else {
+                    ScrollView {
                         
-                        if let selectedGenre = movieViewModel.selectedGenre {
-                            let genreMovies = movieViewModel.filteredMovies.filter { movie in
-                                movieViewModel.checkIfContainsGenre(genre: selectedGenre, movie: movie)
-                            }
-                            
-                            if !genreMovies.isEmpty {
-                                Section() {
-                                    HStack {
-                                        Text(selectedGenre.rawValue)
-                                            .font(.title2.bold())
-                                            .padding(.horizontal)
-                                            .foregroundColor(.white)
-                                            .overlay(
-                                                Rectangle()
-                                                    .frame(height: 2)
-                                                    .foregroundColor(.purple)
-                                                    .offset(y: 12),
-                                                alignment: .bottomLeading
-                                            )
-                                        Spacer()
-                                    }
-                                    .padding()
+                        
+                        FeaturedMovieView()
+                        
+                        if movieViewModel.selectedGenre == nil {
+                            ForEach(GenreTypes.allCases, id: \.self) { genre in
+                                let genreMovies = movieViewModel.filteredMovies.filter { movie in
+                                    movieViewModel.checkIfContainsGenre(genre: genre, movie: movie)
                                 }
                                 
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing: 16) {
-                                        ForEach(genreMovies) { movie in
-                                            CarouselMovieView(movie: movie)
+                                if !genreMovies.isEmpty {
+                                    Section() {
+                                        HStack {
+                                            Text(genre.rawValue)
+                                                .font(.title2.bold())
+                                                .padding(.horizontal)
+                                                .foregroundColor(.white)
+                                                .overlay(
+                                                    Rectangle()
+                                                        .frame(height: 2)
+                                                        .foregroundColor(.purple)
+                                                        .offset(y: 12),
+                                                    alignment: .bottomLeading
+                                                )
+                                            Spacer()
                                         }
+                                        .padding()
                                     }
-                                    .padding(.horizontal)
+                                    
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        LazyHStack(spacing: 16) {
+                                            ForEach(genreMovies) { movie in
+                                                CarouselMovieView(movie: movie)
+                                            }
+                                        }
+                                        .padding(.horizontal)
+                                    }
                                 }
-                            } else {
-                                // Show message when no movies found for selected genre
-                                Text("No movies found for \(selectedGenre.rawValue)")
-                                    .foregroundColor(.gray)
-                                    .padding()
+                            }
+                        } else {
+                            
+                            if let selectedGenre = movieViewModel.selectedGenre {
+                                let genreMovies = movieViewModel.filteredMovies.filter { movie in
+                                    movieViewModel.checkIfContainsGenre(genre: selectedGenre, movie: movie)
+                                }
+                                
+                                if !genreMovies.isEmpty {
+                                    Section() {
+                                        HStack {
+                                            Text(selectedGenre.rawValue)
+                                                .font(.title2.bold())
+                                                .padding(.horizontal)
+                                                .foregroundColor(.white)
+                                                .overlay(
+                                                    Rectangle()
+                                                        .frame(height: 2)
+                                                        .foregroundColor(.purple)
+                                                        .offset(y: 12),
+                                                    alignment: .bottomLeading
+                                                )
+                                            Spacer()
+                                        }
+                                        .padding()
+                                    }
+                                    
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        LazyHStack(spacing: 16) {
+                                            ForEach(genreMovies) { movie in
+                                                CarouselMovieView(movie: movie)
+                                            }
+                                        }
+                                        .padding(.horizontal)
+                                    }
+                                } else {
+                                    // Show message when no movies found for selected genre
+                                    Text("No movies found for \(selectedGenre.rawValue)")
+                                        .foregroundColor(.gray)
+                                        .padding()
+                                }
                             }
                         }
+                        
+                        
+                        Spacer()
                     }
-                 
-                    
-                    Spacer()
+                    .foregroundStyle(.white)
                 }
-                .foregroundStyle(.white)
             }
             
             
@@ -165,8 +164,3 @@ struct HomePageView: View {
         .environmentObject(MovieViewModel())
         
 }
-
-
-
-// Next up like page, category filter
-// Finishing touches - "the additional func", playing music?, theme

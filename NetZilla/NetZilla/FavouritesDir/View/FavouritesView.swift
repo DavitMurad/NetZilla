@@ -24,7 +24,7 @@ struct FavouritesView: View {
                     Text("Your Favourites")
                         .font(.largeTitle.bold())
                         .foregroundStyle(LinearGradient(
-                            colors: [.purple, .pink],
+                            colors: [.purple, .blue],
                             startPoint: .leading,
                             endPoint: .trailing
                         ))

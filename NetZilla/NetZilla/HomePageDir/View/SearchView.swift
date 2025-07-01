@@ -11,6 +11,8 @@ import SwiftUI
 struct SearchView: View {
     @EnvironmentObject var movieViewModel: MovieViewModel
     @State private var textFieldtxt = ""
+    @FocusState private var isTextFieldFocused: Bool
+
 
     let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -29,14 +31,10 @@ struct SearchView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                   gradient: Gradient(colors: [
-                       Color(red: 0.059, green: 0.047, blue: 0.161),
-                       Color(red: 0.188, green: 0.169, blue: 0.388),
-                       Color(red: 0.141, green: 0.141, blue: 0.243)
-                   ]),
-                   startPoint: .topLeading,
-                   endPoint: .bottomTrailing
-               ).ignoresSafeArea()
+                gradient: Gradient(colors: [Color.black, Color.purple.opacity(0.4)]),
+                startPoint: .top,
+                endPoint: .bottom
+            ).ignoresSafeArea()
             VStack(alignment: .center) {
                 TextField("Search movies or shows", text: $textFieldtxt)
                     .padding(.horizontal)
@@ -44,6 +42,9 @@ struct SearchView: View {
                     .background(.secondary)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .foregroundStyle(.white)
+                    .focused($isTextFieldFocused)
+
+                    
 
                 if textFieldtxt.isEmpty {
                     Text("“Let them fight.” – Dr. Serizawa")
@@ -72,6 +73,9 @@ struct SearchView: View {
             }
             .padding()
             .foregroundStyle(.white)
+        }
+        .onAppear {
+            isTextFieldFocused = true
         }
     }
 }
