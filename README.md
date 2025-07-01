@@ -62,8 +62,8 @@ While I handled most of the app logic independently, I relied on external help f
 
 # Reflection:
 
-This project taught me a ton — not just about SwiftUI, but also about good UX design, state management, and balancing complexity with simplicity.
-It’s a strong first step toward an iOS development roles, and many of the concepts covered are core expectations for starter to mid-level iOS positions — such as local storage, architectural patterns, reactive UI, async networking, and modular SwiftUI design.
+This project taught me a ton, not just about SwiftUI, but also about good UX design, state management, and balancing complexity with simplicity.
+It’s a strong first step toward an iOS development roles, and many of the concepts covered are core expectations for starter to mid-level iOS positions, such as local storage, architectural patterns, reactive UI, async networking, and modular SwiftUI design.
 
 I'm excited to dive even deeper into other iOS development essentials in my upcoming projects to have a solid foundation as a tech specialist
 
