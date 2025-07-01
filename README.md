@@ -3,8 +3,9 @@
 ### Demo 🎥 
 https://github.com/user-attachments/assets/9a020cc0-8653-4377-a134-fa08171acf1d
 
-Welcome to a project that beautifully blends personal interest with technical growth, a passion project that I believe turned into a solid portfolio piece.
+### About 🤌
 
+Welcome to a project that beautifully blends personal interest with technical growth, a passion project that I believe turned into a solid portfolio piece.
 
 **NetZilla** is more than just a Netflix-style clone, it’s a vibrant, feature-rich SwiftUI app that showcases my journey through:
 
